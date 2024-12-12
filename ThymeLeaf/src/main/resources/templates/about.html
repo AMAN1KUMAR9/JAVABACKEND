@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<h1 th:text="${hey}"></h1>
+	
+	<div th:each="n, status : ${list}">
+<h3 th:style="${status.odd} ? 'color:red ;font-weight: bold' : 'color:blue ;font-style: italic'" th:text="${status.index+1} + ' ' + ${n}"></h3>
+	</div>
+	
+	
+	<div th:if="${hey} == 'hello' ">
+	hi
+	</div>
+	<div th:unless="${hey} == 'hell' ">
+	hi
+	</div>
+	
+	
+	<div th:switch="${#lists.size(list)}">
+	<h1 th:case = "'0'">no elements</h1>
+	<h1 th:case = "*">contains elements</h1>
+	  
+	</div>
+	
+	
+	<footer id ="host tag" th:replace="footer::footer1">
+	<div> hey there!
+	</div>
+	</footer>
+</body>
+</html>
+
