@@ -1,0 +1,130 @@
+<!DOCTYPE html >
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="user/base::layout(~{::section})" >
+<head>
+<meta charset="UTF-8">
+<title th:title="${title}"></title>
+
+
+
+</head>
+<body>
+
+
+<section >
+
+<div class="card mr-3 ">
+
+<div class="card-body">
+<h1 class="text-center">Update the Contacts</h1>
+
+<div class="container-fluid mt-2 ">
+
+<div class="row">
+<div class="col-md-8 offset-md-2 ">
+<div th:if = "${session.message}" class="container">
+<div class="alert" th:classappend="${session.message.type}"  role = "alert" th:text = "${session.message.message}"></div>
+</div>
+<form th:action="@{/user/contact-submit}"
+enctype="multipart/form-data"
+method = "POST"
+class = "mt-1"
+ th:object="${contact}">
+
+	    <div class="col-auto">
+      
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+         <div class="input-group-text"><i class="fa fa-plus"></i></div>
+         <input type="hidden" th:value="${contact.cId}" name="cId">
+        </div>
+        <input type="text" name = "name" class="form-control"  placeholder="Enter name here" th:field="*{name}">
+      </div>
+    </div>
+    
+	    <div class="col-auto">
+     
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" name = "email" class="form-control" placeholder="Enter email here" th:field = "*{email}">
+      </div>
+    </div>
+    
+    
+	    <div class="col-auto">
+      
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+         <div class="input-group-text"><i class="fa-solid fa-user"></i></div>
+        </div>
+        <input type="text" name = "secondName" class="form-control" placeholder="Enter nickname here" th:field  = "*{secondName}">
+      </div>
+    </div>
+	    <div class="col-auto">
+      
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+         <div class="input-group-text"><i class="fa-solid fa-briefcase"></i></div>
+        </div>
+        <input type="text" name = "work" class="form-control" placeholder="Enter work here" th:field = "*{work}">
+      </div>
+    </div>
+	    <div class="col-auto">
+      
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+         <div class="input-group-text"><i class="fa-duotone fa-solid fa-phone"></i></div>
+        </div>
+        <input type="text" class="form-control"  name = "phone" placeholder="Enter Phone number here" th:field = "*{phone}">
+      </div>
+    </div>
+
+  
+ 
+<div class="col-auto">
+  <div class="input-group mb-2">
+   
+    <textarea 
+    th:field = "*{description}"
+      rows="15" 
+      class="form-control" 
+      placeholder="Enter something about ..."
+      name = "description"></textarea>
+   
+
+  </div>
+</div>
+<div class="text-center">
+ <img  class  ="profile_picture"  th:src="@{'/image/'+ ${contact.image}}" alt="" />
+</div>
+	    <div class="col-auto">
+      
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+         <div class="input-group-text"><i class="fa-duotone fa-solid fa-image"></i></div>
+        </div>
+        <input type="file" name = "profileimage" class="form-control" placeholder="Choose new image here">
+      </div>
+    </div>
+
+
+  
+<div class="container  text-center btm-pd">
+  
+  <button type = "submit" class="btn bg-main text-white ">Save</button>
+  <button type = "reset" class="btn  text-white btn-warning">Reset</button>
+  </div>
+
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</section>
+
+</body>
+</html>

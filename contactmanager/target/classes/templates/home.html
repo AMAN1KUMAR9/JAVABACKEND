@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<section class = "banner d-flex justify-content-center align-items-center">
+<div class = "text-center">
+
+	<h1 class = "font-weight-bold">Contact Sphere</h1>
+<p class = "text-padding">
+    Welcome to <b>Contact Sphere</b> – your secure and efficient solution for managing personal and professional contacts. Organize, search, and access your contacts seamlessly, all in one place. Built with robust technology for a smooth experience!
+</p>
+
+	<a th:href = "@{/user/index}" ><button class = "btn bg-main btn-lg text-center text-white"> Get Started</button></a>
+</div>
+
+</section>
+</body>
+</html>
